@@ -117,6 +117,21 @@ public class Encryptor
     public String decryptMessage(String encryptedMessage)
     {
         /* to be implemented in part (d) */
-        return "";
+        String[][] temp = new String[numRows][numCols];
+        int postion = 0;
+        for (int column = 0; column < temp[0].length; column++) {
+            for (int row = 0; row < temp.length; row++) {
+                temp[row][column] = encryptedMessage.substring(postion, postion + 1);
+                postion ++;
+            }
+        }
+        String returnStr = "";
+        for (int row = 0; row < temp.length; row++) {
+            for (int column = 0; column < temp[row].length; column++) {
+                String piece = temp[row][column];
+                returnStr += piece;
+            }
+        }
+        return returnStr;
     }
 }
